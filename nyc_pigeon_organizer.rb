@@ -21,21 +21,19 @@ pigeon_data = {
 
 
 def nyc_pigeon_organizer(pigeon_data)
+
 name_array = []
-unique_array = []
 new_hash = {}
 
 pigeon_data.each do |key, value|
     value.each do |key, name|
         name_array << name
+        name_array.flatten.uniq.each do |pigeon_name|
+          new_hash[pigeon_name] = {color: [], gender: [], lives: []} # creates hash with appropriate keys, but not values
+        end
     end
 end
 
-unique_array = name_array.flatten.uniq # now we have unique names
-# ['Theo', 'Peter Jr.']
-unique_array.each do |pigeon_name|
-    new_hash[pigeon_name] = {color: [], gender: [], lives: []} # creates hash with appropriate keys, but not values
-end
 
 #new_hash = {'Theo' => {}, 'Peter Jr.' => {}}
 
